@@ -1,0 +1,21 @@
+moduli package
+==============
+
+Submodules
+----------
+
+moduli.Funzioni module
+----------------------
+
+.. automodule:: moduli.Funzioni
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: moduli
+   :members:
+   :undoc-members:
+   :show-inheritance:

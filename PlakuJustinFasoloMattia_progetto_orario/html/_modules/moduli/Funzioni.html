@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>moduli.Funzioni &#8212; OrarioMarconi 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=12dfc556" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for moduli.Funzioni</h1><div class="highlight"><pre>
+<span></span><span class="n">STARTMESSAGGIO</span> <span class="o">=</span> <span class="s1">&#39;Digita &#39;</span>  <span class="c1"># Messaggio iniziale per ogni voce del menu</span>
+<span class="n">MIDMESSAGGIO</span> <span class="o">=</span> <span class="s1">&#39; per &#39;</span>  <span class="c1"># Parte centrale del messaggio per ogni voce del menu</span>
+<span class="n">VOCI_MENU</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s1">&#39;terminare&#39;</span><span class="p">,</span>  <span class="c1"># Voce del menu per terminare il programma</span>
+    <span class="s1">&#39;ottenere l</span><span class="se">\&#39;</span><span class="s1">elenco dei docenti di una classe&#39;</span><span class="p">,</span>  <span class="c1"># Voce del menu per ottenere l&#39;elenco dei docenti di una classe</span>
+    <span class="s1">&#39;ottenere l</span><span class="se">\&#39;</span><span class="s1">orario di un determinato docente&#39;</span><span class="p">,</span>  <span class="c1"># Voce del menu per ottenere l&#39;orario di un docente</span>
+    <span class="s1">&#39;ottenere le ore a disposizione di un docente&#39;</span><span class="p">,</span>  <span class="c1"># Voce del menu per ottenere le ore a disposizione di un docente</span>
+    <span class="s1">&#39;ottenere l</span><span class="se">\&#39;</span><span class="s1">elenco dei docenti che hanno lezione in un determinato giorno e ora&#39;</span>  <span class="c1"># Voce del menu per ottenere i docenti che hanno lezione in un giorno e un&#39;ora specifici</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="vociMenu">
+<a class="viewcode-back" href="../../docs/moduli.html#moduli.Funzioni.vociMenu">[docs]</a>
+<span class="k">def</span> <span class="nf">vociMenu</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Stampa il menu delle opzioni disponibili.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">VOCI_MENU</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">STARTMESSAGGIO</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">MIDMESSAGGIO</span> <span class="o">+</span> <span class="n">VOCI_MENU</span><span class="p">[</span><span class="n">i</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="elencoDocentiClasse">
+<a class="viewcode-back" href="../../docs/moduli.html#moduli.Funzioni.elencoDocentiClasse">[docs]</a>
+<span class="k">def</span> <span class="nf">elencoDocentiClasse</span><span class="p">(</span><span class="n">righecsv</span><span class="p">,</span> <span class="n">classe</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Restituisce un elenco dei docenti che insegnano in una determinata classe.</span>
+
+<span class="sd">    Parametri:</span>
+<span class="sd">        righecsv (list): Lista delle righe del file CSV.</span>
+<span class="sd">        classe (str): Nome della classe da cercare.</span>
+
+<span class="sd">    Ritorna:</span>
+<span class="sd">        list: Lista dei docenti che insegnano nella classe specificata.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">docs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">righecsv</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">righecsv</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+            <span class="k">if</span> <span class="n">righecsv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">classe</span><span class="p">:</span>
+                <span class="n">docs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">righecsv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">docs</span></div>
+
+
+
+<div class="viewcode-block" id="orarioDocente">
+<a class="viewcode-back" href="../../docs/moduli.html#moduli.Funzioni.orarioDocente">[docs]</a>
+<span class="k">def</span> <span class="nf">orarioDocente</span><span class="p">(</span><span class="n">righecsv</span><span class="p">,</span> <span class="n">docente</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Restituisce l&#39;orario di un docente.</span>
+
+<span class="sd">    Parametri:</span>
+<span class="sd">        righecsv (list): Lista delle righe del file CSV.</span>
+<span class="sd">        docente (str): Nome del docente di cui ottenere l&#39;orario.</span>
+
+<span class="sd">    Ritorna:</span>
+<span class="sd">        list: Orario del docente specificato.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">righecsv</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">righecsv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">docente</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">righecsv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="oreDispDocente">
+<a class="viewcode-back" href="../../docs/moduli.html#moduli.Funzioni.oreDispDocente">[docs]</a>
+<span class="k">def</span> <span class="nf">oreDispDocente</span><span class="p">(</span><span class="n">righecsv</span><span class="p">,</span> <span class="n">docente</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Restituisce il numero di ore a disposizione di un docente.</span>
+
+<span class="sd">    Parametri:</span>
+<span class="sd">        righecsv (list): Lista delle righe del file CSV.</span>
+<span class="sd">        docente (str): Nome del docente di cui ottenere il numero di ore a disposizione.</span>
+
+<span class="sd">    Ritorna:</span>
+<span class="sd">        int: Numero di ore a disposizione del docente specificato.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ore_d</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">righecsv</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">righecsv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">docente</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">righecsv</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+                <span class="k">if</span> <span class="n">righecsv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span>
+                    <span class="n">ore_d</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">ore_d</span></div>
+
+
+
+<div class="viewcode-block" id="docentiGiornoOra">
+<a class="viewcode-back" href="../../docs/moduli.html#moduli.Funzioni.docentiGiornoOra">[docs]</a>
+<span class="k">def</span> <span class="nf">docentiGiornoOra</span><span class="p">(</span><span class="n">righecsv</span><span class="p">,</span> <span class="n">giorno</span><span class="p">,</span> <span class="n">ora</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Restituisce l&#39;elenco dei docenti che hanno lezione in un determinato giorno e ora.</span>
+
+<span class="sd">    Parametri:</span>
+<span class="sd">        righecsv (list): Lista delle righe del file CSV.</span>
+<span class="sd">        giorno (str): Giorno della settimana.</span>
+<span class="sd">        ora (int): Ora della giornata.</span>
+
+<span class="sd">    Ritorna:</span>
+<span class="sd">        tuple: Tuple contenente l&#39;elenco dei docenti che hanno lezione e l&#39;ora effettiva.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Rimuove le prime due righe che contengono intestazioni e orari</span>
+    <span class="n">righecsv</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">righecsv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">righecsv</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">righecsv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">docs_giorno_ora</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Lista per memorizzare i docenti che hanno lezione</span>
+    <span class="c1"># Dizionario per mappare i giorni della settimana all&#39;indice dell&#39;orario</span>
+    <span class="n">dict_giorno_ora</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Lu&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Ma&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;Me&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s1">&#39;Gi&#39;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Ve&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">}</span>
+    <span class="n">ora</span> <span class="o">+=</span> <span class="n">dict_giorno_ora</span><span class="p">[</span><span class="n">giorno</span><span class="p">]</span>  <span class="c1"># Calcola l&#39;indice dell&#39;orario effettivo</span>
+
+    <span class="c1"># Itera sulle righe del CSV per trovare i docenti che hanno lezione nell&#39;ora specificata</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">righecsv</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">righecsv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">ora</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">righecsv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">ora</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;R&#39;</span><span class="p">:</span>
+            <span class="n">docs_giorno_ora</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">righecsv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+
+    <span class="n">ora</span> <span class="o">-=</span> <span class="n">dict_giorno_ora</span><span class="p">[</span><span class="n">giorno</span><span class="p">]</span> <span class="c1"># Resetta il valore di ora</span>
+
+    <span class="k">return</span> <span class="n">docs_giorno_ora</span><span class="p">,</span> <span class="n">ora</span>  <span class="c1"># Restituisce i docenti che hanno lezione e l&#39;ora effettiva</span></div>
+
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">OrarioMarconi</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Plaku Fasolo.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
