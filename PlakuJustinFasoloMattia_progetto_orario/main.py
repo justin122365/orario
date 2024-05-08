@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-import moduli.Funzioni as Funzioni
+import funzioni.Funzioni as Funzioni
 PERCORSOCSV = 'OrarioTabellaGlobale.csv'  # Percorso del file CSV dell'orario globale
 PERCORSODIR = 'FileCreati'  # Directory in cui verranno creati i file di output
 SCELTAMESSAGGIO = 'Operazione da eseguire: '  # Messaggio per richiedere l'operazione da eseguire
