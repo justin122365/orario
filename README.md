@@ -23,6 +23,6 @@
 > 5. il programma ti chiederà di inserire dei nomi e cognomi inserirscili in questo modo: prima il *cognome* e poi il *nome* separato da uno spazio
 > 6. le lettere maiuscole e minuscole sono indifferenti (quindi i nome dei docenti/aule puoi anche scriverli con le minuscole)
 
-### ESEGUI CORRETAMENTE QUESTE ISTRUZIONI PER IL CORETTO FUNZIONAMENTO DEL PROGRAMMA 
+### ESEGUI CORRETAMENTE LE ISTRUZIONI INDICATE IN IN PRECEDENZA PER IL CORETTO FUNZIONAMENTO DEL PROGRAMMA 
 
 ## BUONA ESECUZIONE! ##
