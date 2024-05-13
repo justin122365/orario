@@ -23,7 +23,7 @@
 > 5. il programma ti chiederà di inserire dei nomi e cognomi inserirscili in questo modo: prima il *cognome* e poi il *nome* separato da uno spazio
 > 6. le lettere maiuscole e minuscole sono indifferenti (quindi i nome dei docenti/aule puoi anche scriverli con le minuscole)
 
-### ESEGUI CORRETAMENTE LE ISTRUZIONI INDICATE IN IN PRECEDENZA PER IL CORETTO FUNZIONAMENTO DEL PROGRAMMA 
+### ESEGUI CORRETAMENTE LE ISTRUZIONI INDICATE IN IN PRECEDENZA PER IL CORRETTO FUNZIONAMENTO DEL PROGRAMMA 
 
 #### N.B: troverai un altro readme all'interno della cartella *plakujustinfasolomattia_progetto_orario* il quale spiega ongi funzione nel dettaglio spiegando che parametri le vengono passati e cosa restituiscono!
 
