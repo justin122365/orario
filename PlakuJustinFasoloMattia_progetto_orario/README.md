@@ -283,8 +283,6 @@ def vociMenu():
 
 - Le costanti `STARTMESSAGGIO, MIDMESSAGGIO E VOCI_MENU` sono utilizzate dalla funzione `vociMenu` per stampare un elenco di **stringhe concatenate** tramite la scansione di `VOCI_MENU`
 
-- **N.B: *La funzione `n.5` non è attualmente disponibile nel progetto, la sua aggiunta è pianificata il prima possibile***
-
 ### Elenco dei docenti in una classe
 ```py
 def elencoDocentiClasse(righecsv, classe):
@@ -322,4 +320,27 @@ def oreDispDocente(righecsv, docente):
 ```
 - La funzione calcola le **ore contrassegnate da `'D'`** all'interno del file *CSV* data una stringa `docente` (cognome e nome del docente), il quale totale delle ore verrà **riscritto su un file in secondo luogo** assieme al `docente` precedentemente ottenuto
 
+### Elenco dei docenti dati giorno e ora
+```py
+def docentiGiornoOra(righecsv, giorno, ora):
+
+    # Rimuove le prime due righe che contengono intestazioni e orari
+    righecsv.remove(righecsv[0])
+    righecsv.remove(righecsv[0])
+
+    docs_giorno_ora = []  # Lista per memorizzare i docenti che hanno lezione
+    # Dizionario per mappare i giorni della settimana all'indice dell'orario
+    dict_giorno_ora = {'Lu': 0, 'Ma': 8, 'Me': 16, 'Gi': 24, 'Ve': 32}
+    ora += dict_giorno_ora[giorno]  # Calcola l'indice dell'orario effettivo
+
+    # Itera sulle righe del CSV per trovare i docenti che hanno lezione nell'ora specificata
+    for i in range(len(righecsv)):
+        if righecsv[i][ora].strip(' ') != '' and righecsv[i][ora].strip(' ') != 'R':
+            docs_giorno_ora.append(righecsv[i][0].strip(' '))
+
+    ora -= dict_giorno_ora[giorno] # Resetta il valore di ora
+
+    return docs_giorno_ora, ora  # Restituisce i docenti che hanno lezione e l'ora effettiva
+```
+- la funzione restituisce l'elenco dei docenti dati come parametri un giorno della settimana e un'ora di quel giorno.
 
