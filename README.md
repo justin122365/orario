@@ -25,4 +25,6 @@
 
 ### ESEGUI CORRETAMENTE LE ISTRUZIONI INDICATE IN IN PRECEDENZA PER IL CORETTO FUNZIONAMENTO DEL PROGRAMMA 
 
+#### N.B: troverai un altro readme all'interno della cartella *plakujustinfasolomattia_progetto_oario* il quale spiega ongi funzione nel dettaglio spiegando che parametri le vengono passati e cosa restituiscono!
+
 ## BUONA ESECUZIONE! ##
