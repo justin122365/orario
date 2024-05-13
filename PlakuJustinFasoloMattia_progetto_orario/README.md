@@ -1,5 +1,8 @@
 # ORARIO ITIS GUGLIELMO MARCONI
 
+## Autori: Justin Plaku | Fasolo Mattia ##
+
+
 ## Descrizione del progetto
 - Programma sviluppato in **`Python`** che utilizza un file di tipo **CSV** *(comma-separeted values)* per **creare/gestire** dei file in base alle **richieste dell'utente**
 
@@ -182,38 +185,9 @@ while (not(uscita)):
         filecsv.close()
         filetxt.close()
 
-#    elif scelta == SCELTE_VALIDE[4]:
-#        if not(os.path.exists(PERCORSOCSV)):
-#            print(FILENOTFOUND)
-#            break
-#        else:
-#            filecsv = open(PERCORSOCSV, 'r')
-#
-#        righecsv = []
-#        giorni = set()
-#        ore = range(1, 8)
-#
-#        rigacsv = filecsv.readline().rstrip().split(',')
-#        while rigacsv != ['']:
-#            righecsv.append(rigacsv)
-#            rigacsv = filecsv.readline().rstrip().split(',')
-#
-#        for i in range(len(righecsv[0])):
-#            if (righecsv[0][i].strip() != '' and righecsv[0][i].strip() != 'Docente'):
-#                giorni.add(righecsv[0][i].strip())
-#
-#        giorni = list(giorni)
-#        giorno = input('Inserisci il giorno da controllare: ').capitalize()
-#        while (len(giorno) > 2 or giorno not in giorni):
-#            print(ERROREMESSAGGIO)
-#            giorno = input('Inserisci il giorno da controllare: ').capitalize()
-#
-#        ora = input('Inserisci l\'ora di ' + giorno + ' da controllare: ')
-#        while (len(ora) > 1 or int(ora) not in ore):
-#            print(ERROREMESSAGGIO)
-#            ora = input('Inserisci l\'ora di ' + giorno + ' da controllare: ')
-#
-#        docenti_giorno_ora = Funzioni.docentiGiornoOra(righecsv, giorno, ora)
+
+
+
 ```
 - Il **Main File** è sviluppato con dei metodi importate dal modulo `Funzioni` e con un ciclo "condizionato" dalle **scelte selezionate tramite input**
 
